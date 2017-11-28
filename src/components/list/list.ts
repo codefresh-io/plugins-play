@@ -1,38 +1,26 @@
-import { Component, Vue } from 'vue-property-decorator';
-import axios, { AxiosResponse } from 'axios';
-
-interface UserResponse {
-    id: string;
-    name: string;
-}
+import {Component, Vue, Prop, Watch} from 'vue-property-decorator';
+import {PluginsService, PluginPreview} from '../../util/plugins';
 
 @Component({
     template: require('./list.html')
 })
 export class ListComponent extends Vue {
 
-    items: UserResponse[] = [];
-    private url = 'https://jsonplaceholder.typicode.com/users';
-    protected axios;
+    items: PluginPreview[] = [];
+
+    @Prop()
+    query: string;
 
     constructor() {
-      super();
-      this.axios = axios;
+        super();
     }
 
     mounted() {
-        this.$nextTick(() => {
-            this.loadItems();
-        });
+        this.loadItems();
     }
 
+    @Watch('query')
     private loadItems() {
-        if (!this.items.length) {
-            this.axios.get(this.url).then((response: AxiosResponse) => {
-                this.items = response.data;
-            }, (error) => {
-                console.error(error);
-            });
-        }
+        PluginsService.query(this.query).then(list => this.items = list);
     }
 }

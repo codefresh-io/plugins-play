@@ -2,6 +2,7 @@
 node_modules/
 dist/
 coverage/
+.idea/
 src/css
 src/**/*.js
 src/**/*.map
