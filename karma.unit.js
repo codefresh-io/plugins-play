@@ -18,7 +18,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['Chrome'],
+    browsers: ['jsdom'],
     mime: {
       'text/x-typescript': ['ts']
     },
@@ -27,7 +27,7 @@ module.exports = function(config) {
           require('karma-webpack'),
           require('karma-mocha'),
           require('karma-mocha-reporter'),
-          require('karma-chrome-launcher'),
+          require('karma-jsdom-launcher'),
           require('karma-chai'),
           require('karma-sinon')
       ]
