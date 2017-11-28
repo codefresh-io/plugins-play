@@ -22,6 +22,14 @@ module.exports = function(config) {
     mime: {
       'text/x-typescript': ['ts']
     },
-    singleRun: true
+    singleRun: true,
+      plugins: [
+          require('karma-webpack'),
+          require('karma-mocha'),
+          require('karma-mocha-reporter'),
+          require('karma-chrome-launcher'),
+          require('karma-chai'),
+          require('karma-sinon')
+      ]
   });
 };
