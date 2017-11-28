@@ -1,14 +1,16 @@
 FROM node:alpine
+EXPOSE 8080
 
-WORKDIR ./
+WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json /app/
 
+RUN npm i webpack -g
 RUN npm install
 
-COPY . ./
+COPY . /app/
 
+ENV NODE_ENV=production
 RUN npm run compile
 
-EXPOSE 8080
 CMD [ "npm", "run", "serve" ]
