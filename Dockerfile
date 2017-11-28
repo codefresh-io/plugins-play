@@ -1,13 +1,14 @@
-FROM node:carbon
+FROM node:alpine
 
 WORKDIR ./
 
 COPY package*.json ./
 
 RUN npm install
-RUN npm i -g karma karma-cli webpack typescript
+
 COPY . .
 
+RUN npm run build
+
 EXPOSE 8080
-CMD [ "npm", "run", "build" ]
 CMD [ "npm", "run", "serve" ]
