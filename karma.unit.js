@@ -27,6 +27,7 @@ module.exports = function(config) {
           require('karma-webpack'),
           require('karma-mocha'),
           require('karma-mocha-reporter'),
+          require('jsdom'),
           require('karma-jsdom-launcher'),
           require('karma-chai'),
           require('karma-sinon')
