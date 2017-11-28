@@ -3,7 +3,7 @@ import {Component, Vue} from 'vue-property-decorator';
 @Component({
     template: require('./search-box.html')
 })
-export class SearchBox extends Vue {
+export class SearchBoxComponent extends Vue {
 
     query: string = '';
 

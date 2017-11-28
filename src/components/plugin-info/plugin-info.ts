@@ -1,11 +1,11 @@
 import { Component, Vue } from 'vue-property-decorator';
 
-import './home.scss';
+import './plugin-info.scss';
 
 @Component({
-    template: require('./home.html')
+    template: require('./plugin-info.html')
 })
-export class HomeComponent extends Vue {
+export class PluginInfoComponent extends Vue {
 
     package: string = 'vue-webpack-typescript';
     repo: string = 'https://github.com/ducksoupdev/vue-webpack-typescript';

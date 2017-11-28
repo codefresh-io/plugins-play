@@ -13,11 +13,11 @@ export class Plugins {
     private PLUGINS_URI: string;
 
     constructor() {
-        this.PLUGINS_URI = 'https://raw.githubusercontent.com/codefresh-io/plugins/master';
+        this.PLUGINS_URI = 'https://raw.githubusercontent.com/codefresh-io/plugins/master/';
     }
 
     private getPlugins(): Promise<PluginPreview[]> {
-        return this._plugins ? Promise.resolve(this._plugins) : <Promise<any>>(fetch(`${this.PLUGINS_URI}/CATALOG.md`))
+        return this._plugins ? Promise.resolve(this._plugins) : <Promise<any>>(fetch(`${this.PLUGINS_URI}CATALOG.md`))
             .then(res => <Promise<string>>res.text())
             .then(this.parsePluginsReadmeFile)
             .then(plugins => {
@@ -64,6 +64,18 @@ export class Plugins {
                     return [].concat(plugins);
                 }
             });
+    }
+
+    get(path) {
+        return Promise.all([
+            fetch(`${this.PLUGINS_URI}${path}/plugin.yaml`).then(res => res.text()),
+            fetch(`${this.PLUGINS_URI}${path}/README.md`).then(res => res.text()),
+        ]).then(res => {
+            return {
+                readme: res[0],
+                plugin: res[1]
+            };
+        });
     }
 
 }

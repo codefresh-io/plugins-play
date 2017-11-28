@@ -1,6 +1,8 @@
 import {Component, Vue, Prop, Watch} from 'vue-property-decorator';
 import {PluginsService, PluginPreview} from '../../util/plugins';
 
+import './list.scss';
+
 @Component({
     template: require('./list.html')
 })
