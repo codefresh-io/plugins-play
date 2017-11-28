@@ -1,10 +1,22 @@
 <div class="list-component">
-  <div class="row">
-    <div class="content col-md-4">
-      <h1>Plugins</h1>
-      <ul>
-        <li v-for="item in items">{{item.name}}</li>
-      </ul>
+    <div class="row">
+        <div class="content col-md-12">
+            <h1>Plugins</h1>
+
+            <table>
+                <tr>
+                    <th>Plugin</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Tags</th>
+                </tr>
+                <tr v-for="item in items">
+                    <td @click="showPlugin(item)" class="item-name">{{item.name}}</td>
+                    <td>{{item.author}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.tags.join(' ,')}}</td>
+                </tr>
+            </table>
+        </div>
     </div>
-  </div>
 </div>

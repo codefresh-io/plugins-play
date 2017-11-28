@@ -1,18 +1,25 @@
-<div class="container content">
-  <div class="row">
-    <div class="content col-md-4">
-      <h1>
-        <strong>Thank you for using
-          <span class="text-primary package">{{package}}</span>
-        </strong>
-      </h1>
-      <p>This project is running in
-        <strong class="mode">{{mode}} mode</strong>
-      </p>
-      <p>Make sure to follow the project on
-        <a :href="repo">GitHub</a> to stay up to date with the latest releases,
-        or contribute to the project by opening an issue
-        or making a pull-request!</p>
+<div class="container content plugin-info">
+    <div class="row">
+        <div class="col-md-12">
+            <img v-if="icon" :src="icon">
+            <vue-markdown v-if="readme">{{readme}}</vue-markdown>
+        </div>
     </div>
-  </div>
+
+    <div class="row" v-if="plugin">
+        <div class="col-md-12">
+            <h2>More details</h2>
+
+            <div><strong>Image:</strong> {{plugin.image}}</div>
+            <div><strong>Version:</strong> {{plugin.version}}</div>
+            <div><strong>Maintainers:</strong> {{plugin.maintainers.map(m => m.name).join(', ')}}</div>
+            <div><strong>Environment Variables:</strong>
+                <ul>
+                    <li v-for="env in plugin.envs"><strong>{{env.name}}</strong>
+                        <i v-if="env.type !== 'required'">optional</i> - {{env.description}}</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
 </div>

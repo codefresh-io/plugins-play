@@ -14,8 +14,8 @@ export declare class Plugins {
     private parsePluginsReadmeFile(content);
     query(search: string): Promise<any[]>;
     get(path: any): Promise<{
-        readme: string;
-        plugin: string;
+        plugin: any;
+        readme: any;
     }>;
 }
 export declare const PluginsService: Plugins;

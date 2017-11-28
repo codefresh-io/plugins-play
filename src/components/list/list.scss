@@ -1,5 +1,14 @@
 .list-component {
-    ul {
-        list-style: none;
+    table {
+        width: 100%;
+
+        .item-name {
+            cursor: pointer;
+            color: cornflowerblue;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }

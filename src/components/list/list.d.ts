@@ -7,4 +7,5 @@ export declare class ListComponent extends Vue {
     constructor();
     mounted(): void;
     private loadItems();
+    showPlugin(item: any): void;
 }

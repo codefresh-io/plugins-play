@@ -9,6 +9,7 @@ export class SearchBoxComponent extends Vue {
 
     search() {
         this.$router.replace({
+            name: 'list',
             query: {q: this.query}
         });
     }

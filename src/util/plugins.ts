@@ -1,3 +1,5 @@
+import YAML from 'js-yaml';
+
 export interface PluginPreview {
     name: string;
     path: string;
@@ -45,7 +47,7 @@ export class Plugins {
                     author: plugin[2].trim(),
                     path,
                     description: plugin[3].trim(),
-                    tags: plugin[4].slice(1, -1).split(` `)
+                    tags: plugin[4].slice(1, -1).replace(/[^a-z0-9 ]/gi, '').trim().split(' ')
                 };
             })
             .filter(Boolean);
@@ -58,7 +60,8 @@ export class Plugins {
                     const regex = new RegExp(search.toLowerCase(), 'i');
                     return plugins.filter(plugin => (
                         regex.test(plugin.name) ||
-                        regex.test(plugin.description))
+                        regex.test(plugin.description) ||
+                        plugin.tags.filter(regex.test.bind(regex)).length)
                     );
                 } else {
                     return [].concat(plugins);
@@ -68,12 +71,14 @@ export class Plugins {
 
     get(path) {
         return Promise.all([
-            fetch(`${this.PLUGINS_URI}${path}/plugin.yaml`).then(res => res.text()),
-            fetch(`${this.PLUGINS_URI}${path}/README.md`).then(res => res.text()),
+            fetch(`${this.PLUGINS_URI}${path}/plugin.yaml`)
+                .then(res => res.text()).then(YAML.safeLoad),
+            fetch(`${this.PLUGINS_URI}${path}/README.md`)
+                .then(res => res.text()),
         ]).then(res => {
             return {
-                readme: res[0],
-                plugin: res[1]
+                plugin: res[0],
+                readme: res[1]
             };
         });
     }

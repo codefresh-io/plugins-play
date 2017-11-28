@@ -37,10 +37,12 @@
     "uiv": "^0.14.1",
     "vue": "~2.5.8",
     "vue-class-component": "~6.1.0",
+    "vue-markdown": "^2.2.4",
     "vue-property-decorator": "~6.0.0",
     "vue-router": "~3.0.1"
   },
   "devDependencies": {
+    "@types/js-yaml": "^3.10.1",
     "@types/mocha": "~2.2.44",
     "@types/node": "~8.0.53",
     "@types/sinon": "~4.0.0",

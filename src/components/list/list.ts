@@ -25,4 +25,13 @@ export class ListComponent extends Vue {
     private loadItems() {
         PluginsService.query(this.query).then(list => this.items = list);
     }
+
+    showPlugin(item) {
+        this.$router.replace({
+            name: 'plugin',
+            query: {
+                path: item.path
+            }
+        });
+    }
 }

@@ -1,7 +1,9 @@
 import { Vue } from 'vue-property-decorator';
-import './home.scss';
-export declare class HomeComponent extends Vue {
-    package: string;
-    repo: string;
-    mode: string;
+import './plugin-info.scss';
+export declare class PluginInfoComponent extends Vue {
+    path: string;
+    icon: string;
+    plugin: any;
+    readme: string;
+    mounted(): void;
 }
