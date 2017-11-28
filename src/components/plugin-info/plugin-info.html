@@ -12,7 +12,7 @@
 
             <div><strong>Image:</strong> {{plugin.image}}</div>
             <div><strong>Version:</strong> {{plugin.version}}</div>
-            <div><strong>Maintainers:</strong> {{plugin.maintainers.map(m => m.name).join(', ')}}</div>
+            <div v-if="plugin.maintainers"><strong>Maintainers:</strong> {{plugin.maintainers.map(m => m.name).join(', ')}}</div>
             <div><strong>Environment Variables:</strong>
                 <ul>
                     <li v-for="env in plugin.envs"><strong>{{env.name}}</strong>
