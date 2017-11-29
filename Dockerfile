@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY package*.json /app/
 
-RUN npm i webpack -g
+RUN npm i webpack karma typescript -g
 RUN npm install
 
 COPY . /app/
