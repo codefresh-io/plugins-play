@@ -27,7 +27,7 @@
     "coverage:run": "cross-env NODE_ENV=development karma start karma.coverage.js",
     "dev": "webpack-dev-server --hot --inline",
     "lint": "tslint src/**/*.ts",
-    "serve": "superstatic dist --port 8080 --config superstatic.json",
+    "serve": "superstatic dist --port 8080 --host 0.0.0.0 --config superstatic.json",
     "test": "cross-env NODE_ENV=development karma start karma.unit.js",
     "test:debug": "cross-env NODE_ENV=development karma start karma.debug.js",
     "test:watch": "cross-env NODE_ENV=development karma start karma.unit.js --singleRun=false --auto-watch"
