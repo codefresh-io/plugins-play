@@ -35,7 +35,7 @@
   "dependencies": {
     "axios": "~0.17.1",
     "superstatic": "^5.0.1",
-    "uiv": "^0.14.1",
+    "uiv": "^0.37.0",
     "vue": "~2.5.8",
     "vue-class-component": "~6.1.0",
     "vue-markdown": "^2.2.4",
