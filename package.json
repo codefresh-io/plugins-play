@@ -37,7 +37,7 @@
     "superstatic": "^5.0.1",
     "uiv": "^0.14.1",
     "vue": "~2.5.8",
-    "vue-class-component": "~6.1.0",
+    "vue-class-component": "~6.3.2",
     "vue-markdown": "^2.2.4",
     "vue-property-decorator": "~6.0.0",
     "vue-router": "~3.0.1"
